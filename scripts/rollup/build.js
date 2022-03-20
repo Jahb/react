@@ -532,7 +532,7 @@ async function createBundle(bundle, bundleType) {
   const rollupConfig = {
     input: resolvedEntry,
     treeshake: {
-      pureExternalModules,
+      moduleSideEffects: pureExternalModules,
     },
     external(id) {
       const containsThisModule = pkg => id === pkg || id.startsWith(pkg + '/');
